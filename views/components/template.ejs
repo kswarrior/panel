@@ -336,6 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="relative flex flex-1 flex-col">
 
         <div class="ml-14 lg:-ml-2 flex items-center w-fit mt-3.5 px-4 py-2 h-10 rounded-xl border border-neutral-300 dark:border-white/5 active:scale-100 duration-200 hover:border-neutral-400 dark:hover:border-neutral-300/10 bg-transparent text-neutral-800 dark:text-white">
+        
+        <% if (settings.logo) { %><img class="h-12 w-auto rounded-xl" src="<%= settings.logo %>"> <% } %>
+        <h2 class="<% if (settings.logo == true) { %>mt-6<% } %> text-3xl font-medium text-neutral-800 dark:text-white">Sign in to <%= settings.title %></h2>
            
        </div>
       </div>
