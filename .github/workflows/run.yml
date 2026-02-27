@@ -25,7 +25,7 @@ jobs:
 
       # ✅ Now TypeScript will work
       - name: Build project
-        run: npm run build-ts
+        run: npm run build
 
       - name: Create user script
         run: |
