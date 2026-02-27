@@ -1,65 +1,54 @@
 <!-- Sidebar -->
 <style>
-
-         .sidebar nav ul {
-            position: relative;
-         }
-         .nav-link {
-            position: relative;
-            z-index: 1;
-         }
-         .nav-link.active {
-            color: white;
-            font-weight: 500;
-         }
-         @media (max-width: 1024px) {
-
-  .sidebar {
-    display: none;
-    position: fixed;
-    z-index: 50;
-    height: 100%;
-    width: 225px;
-    backdrop-filter: blur(var(--backdrop-blur));
-    background: rgba(0, 0, 0, 0.4);
-    overflow-y: auto;
-
-    /* Original transform */
-    transform: translateX(-100%);
-
-    /* Added smooth animation */
-    opacity: 0;
-    transition: 
-      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.3s ease;
+  .sidebar nav ul {
+    position: relative;
   }
-
-  .sidebar.open {
-    display: block;
-    transform: translateX(0);
-
-    /* Added fade in */
-    opacity: 1;
-    animation: sidebarSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  .nav-link {
+    position: relative;
+    z-index: 1;
   }
-
-  .sidebar.expanded {
-    width: 100%;
+  .nav-link.active {
+    color: white;
+    font-weight: 500;
   }
-
-}
-
-/* Animation */
-@keyframes sidebarSlide {
-  from {
-    transform: translateX(-110%);
-    opacity: 0;
+  @media (max-width: 1024px) {
+    .sidebar {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      height: 100%;
+      width: 225px;
+      backdrop-filter: blur(var(--backdrop-blur));
+      background: rgba(0, 0, 0, 0.4);
+      overflow-y: auto;
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: 
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
+    }
+    .sidebar.open {
+      display: block;
+      transform: translateX(0);
+      opacity: 1;
+      animation: sidebarSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .sidebar.expanded {
+      width: 100%;
+    }
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  @keyframes sidebarSlide {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
-}
 </style>
 
 <button id="mobile-sidebar-toggle" class="lg:hidden fixed top-4 left-4 z-50 w-fit p-2 rounded-xl text-white border border-white/5 bg-[#162836] hover:scale-110 active:scale-100 duration-200 transition-all">
@@ -72,6 +61,12 @@
   <div id="pc-sidebar2" class="flex grow flex-col gap-y-5 overflow-hidden rounded-r-3xl rounded-l-lg bg-transparent border border-white/5">
       <nav class="flex flex-1 flex-col">
           <!-- Logo section -->
+          <div class="pl-6 pt-4 pb-4 flex">
+              <a href="/" class="flex items-center">
+                  <img src="<%= settings.logo.startsWith('/') ? settings.logo : '/' + settings.logo %>" alt="Logo" class="bg-neutral-950/90 p-1 dark:bg-transparent h-10 w-10 rounded-xl mr-3 inline-flex">
+                  <h1 class="text-white font-medium tracking-tight text-lg group-[.collapsed]:hidden"><%= settings.title %></h1>
+              </a>
+          </div>
 
           <!-- User info -->
           <div class="flex items-center space-x-4 py-4 px-4 border-y border-white/5">
@@ -329,13 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <div id="colcont" class="lg:pl-56">
   <div class="backdrop-blur bg-black bg-opacity-50 absolute inset-0 z-30 h-16"></div>
-    <div class="sticky top-0 z-40 flex h-16 items-center gap-x-4
-            bg-neutral-900/30
-            backdrop-blur-2xl
-            supports-[backdrop-filter]:bg-neutral-900/20
-            border-b border-white/10
-            shadow-lg
-            px-4 sm:px-6 lg:px-4">
+    <div class="sticky backdrop-blur top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 bg-transparent px-4 sm:gap-x-6 sm:px-4 lg:px-4">
        <div class="hidden lg:block">
        <button type="button" id="sidebar-toggle" class="hidden lg:block w-fit p-2 mt-1 rounded-xl text-neutral-700 dark:text-white border border-neutral-300 dark:border-white/5 hover:scale-110 active:scale-100 duration-200 hover:text-neutral-900 dark:hover:text-white">
           <span class="sr-only">Open sidebar</span>
@@ -352,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <img src="<%= settings.logo.startsWith('/') ? settings.logo : '/' + settings.logo %>" alt="Logo" class="bg-neutral-950/90 p-1 dark:bg-transparent h-10 w-10 rounded-xl mr-3 inline-flex">
                   <h1 class="text-white font-medium tracking-tight text-lg group-[.collapsed]:hidden"><%= settings.title %></h1>
               </a>
-          </div>>
+          </div>
       </div>
     </div>
   </div>
