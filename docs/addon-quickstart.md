@@ -1,10 +1,10 @@
-# AirLink Panel Addon Quick Start Guide
+# KS Panel Panel Addon Quick Start Guide
 
-This guide will help you quickly create your first addon for AirLink Panel.
+This guide will help you quickly create your first addon for KS Panel Panel.
 
 ## Prerequisites
 
-- AirLink Panel installed and running
+- KS Panel Panel installed and running
 - Basic knowledge of JavaScript/TypeScript
 - Familiarity with Express.js
 
@@ -24,7 +24,7 @@ Create a `package.json` file in your addon directory:
 {
   "name": "My First Addon",
   "version": "1.0.0",
-  "description": "My first AirLink Panel addon",
+  "description": "My first KS Panel Panel addon",
   "author": "Your Name",
   "main": "index.ts",
   "router": "/my-first-addon"
@@ -96,7 +96,7 @@ Create a view file at `views/index.ejs`:
       <div class="sm:flex sm:items-center px-8 pt-4">
         <div class="sm:flex-auto">
           <h1 class="text-base font-medium leading-6 text-white">My First Addon</h1>
-          <p class="mt-1 tracking-tight text-sm text-neutral-500">Welcome to my first AirLink Panel addon!</p>
+          <p class="mt-1 tracking-tight text-sm text-neutral-500">Welcome to my first KS Panel Panel addon!</p>
         </div>
       </div>
       <div class="px-8 mt-5">
@@ -140,7 +140,7 @@ Create a view file at `views/index.ejs`:
 
 ## Step 5: Enable Your Addon
 
-1. Restart the AirLink Panel server
+1. Restart the KS Panel Panel server
 2. Go to the admin panel at `/admin/addons`
 3. Your addon should appear in the list
 4. Make sure it's enabled

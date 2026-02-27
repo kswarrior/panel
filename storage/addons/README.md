@@ -1,6 +1,6 @@
-# AirLink Panel Addons
+# KS Panel Addons
 
-This directory contains addons for AirLink Panel. Addons can extend the functionality of the panel with custom features.
+This directory contains addons for KS Panel. Addons can extend the functionality of the panel with custom features.
 
 ## Creating an Addon
 

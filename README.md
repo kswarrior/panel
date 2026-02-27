@@ -1,19 +1,19 @@
 > [!CAUTION]
-> AirLink is in development for a while and is getting used by a few people, please wait an release version
+> KS Panel is in development for a while and is getting used by a few people, please wait an release version
 
-# Airlink Panel 🚀
+# KS Panel 🚀
 
 **Streamlined Game Server Management**
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
-[![License](https://img.shields.io/github/license/AirlinkLabs/panel)](https://github.com/AirlinkLabs/panel/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/KS PanelLabs/panel)](https://github.com/KS PanelLabs/panel/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1302020587316707420)](https://discord.gg/D8YbT9rDqz)
 
 ## 📖 Overview
 
-Airlink Panel is an advanced, open-source game server management platform designed to simplify server deployment, monitoring, and administration. With its powerful addon system, you can extend the functionality of the panel to suit your specific needs.
+KS Panel is an advanced, open-source game server management platform designed to simplify server deployment, monitoring, and administration. With its powerful addon system, you can extend the functionality of the panel to suit your specific needs.
 
 ## 🛠 Prerequisites
 
@@ -29,12 +29,12 @@ Airlink Panel is an advanced, open-source game server management platform design
 Run the installer as root:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/airlinklabs/panel/refs/heads/main/installer.sh)
+bash <(curl -s https://raw.githubusercontent.com/KS Panellabs/panel/refs/heads/main/installer.sh)
 ```
-the airlink panel and daemon can be started and stopped using systemd
+the KS Panel and daemon can be started and stopped using systemd
 ```bash
-systemctl start airlink-panel # Starting the panel
-systemctl stop airlink-panel # Stopping the panel
+systemctl start KS Panel-panel # Starting the panel
+systemctl stop KS Panel-panel # Stopping the panel
 ```
 
 
@@ -42,7 +42,7 @@ systemctl stop airlink-panel # Stopping the panel
 1. Clone the repository:
    ```bash
    cd /var/www/
-   git clone https://github.com/AirlinkLabs/panel.git
+   git clone https://github.com/KS PanelLabs/panel.git
    cd panel
    ```
 
@@ -108,7 +108,7 @@ systemctl stop airlink-panel # Stopping the panel
 
 ## 🧩 Addon System
 
-AirLink Panel features a powerful addon system that allows you to extend its functionality. Addons can add new features, modify existing ones, and integrate with external services.
+KS Panel features a powerful addon system that allows you to extend its functionality. Addons can add new features, modify existing ones, and integrate with external services.
 
 ### Creating Addons
 
@@ -130,5 +130,5 @@ For more information, check out these resources:
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
-  Made with ❤️ by AirLink Labs
+  Made with ❤️ by KS Panel Labs
 </div>

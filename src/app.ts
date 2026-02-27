@@ -48,6 +48,7 @@ loadEnv();
 process.setMaxListeners(20);
 
 const app = express();
+app.set('trust proxy', 1);
 const port = process.env.PORT || 3000;
 const name = process.env.NAME || 'AirLink';
 const airlinkVersion = config.meta.version;
