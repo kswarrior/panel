@@ -1,12 +1,3 @@
-/**
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- *      AirLink - Open Source Project by AirlinkLabs
- *      Repository: https://github.com/airlinklabs/panel
- *
- *     © 2025 AirlinkLabs. Licensed under the MIT License
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- */
-
 import logger from './logger';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
@@ -32,9 +23,9 @@ export const settingsLoader = async () => {
     if (!settings) {
       await prisma.settings.create({
         data: {
-          title: 'AirLink',
+          title: 'kspanel',
           description:
-            'AirLink is a free and open source project by AirlinkLabs',
+            'kspanel is a free and open source project by KS Warrior',
           logo: '../assets/logo.png',
           theme: 'default',
           language: 'en',

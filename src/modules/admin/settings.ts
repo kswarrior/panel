@@ -71,7 +71,7 @@ const adminModule: Module = {
     description: 'This file is for admin functionality of the Nodes.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -161,7 +161,7 @@ const adminModule: Module = {
           await prisma.settings.update({
             where: { id: 1 },
             data: {
-              title: 'Airlink',
+              title: 'kspanel',
               logo: '../assets/logo.png',
               favicon: '../assets/favicon.ico',
               theme: 'default',

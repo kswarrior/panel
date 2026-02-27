@@ -8,9 +8,9 @@ import { registerPermission } from '../../handlers/permisions';
 
 const prisma = new PrismaClient();
 
-registerPermission('airlink.admin.overview.main');
-registerPermission('airlink.admin.overview.checkForUpdates');
-registerPermission('airlink.admin.overview.performUpdate');
+registerPermission('kspanel.admin.overview.main');
+registerPermission('kspanel.admin.overview.checkForUpdates');
+registerPermission('kspanel.admin.overview.performUpdate');
 
 interface ErrorMessage {
   message?: string;
@@ -22,7 +22,7 @@ const adminModule: Module = {
     description: 'This file is for admin functionality.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -31,7 +31,7 @@ const adminModule: Module = {
 
     router.get(
       '/admin/overview',
-      isAuthenticated(true, 'airlink.admin.overview.main'),
+      isAuthenticated(true, 'kspanel.admin.overview.main'),
       async (req: Request, res: Response) => {
         const errorMessage: ErrorMessage = {};
 
@@ -59,7 +59,7 @@ const adminModule: Module = {
             imageCount,
             req,
             settings,
-            airlinkVersion: res.locals.airlinkVersion,
+            kspanelVersion: res.locals.kspanelVersion,
           });
         } catch (error) {
           logger.error('Error fetching user:', error);
@@ -72,7 +72,7 @@ const adminModule: Module = {
 
     router.get(
       '/admin/check-update',
-      isAuthenticated(true, 'airlink.admin.overview.checkForUpdates'),
+      isAuthenticated(true, 'kspanel.admin.overview.checkForUpdates'),
       async (_req: Request, res: Response) => {
         try {
           const updateInfo = await checkForUpdates();
@@ -86,7 +86,7 @@ const adminModule: Module = {
 
     router.post(
       '/admin/perform-update',
-      isAuthenticated(true, 'airlink.admin.overview.performUpdate'),
+      isAuthenticated(true, 'kspanel.admin.overview.performUpdate'),
       async (_req: Request, res: Response) => {
         try {
           const success = await performUpdate();

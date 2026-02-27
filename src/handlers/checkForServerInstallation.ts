@@ -55,7 +55,7 @@ export async function checkForServerInstallation(
       `http://${server.node.address}:${server.node.port}/container/status/${server.UUID}`,
       {
         auth: {
-          username: 'Airlink',
+          username: 'kspanel',
           password: server.node.key,
         },
         timeout: 5000,

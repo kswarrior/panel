@@ -1,12 +1,3 @@
-/**
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- *      AirLink - Open Source Project by AirlinkLabs
- *      Repository: https://github.com/airlinklabs/panel
- *
- *     © 2025 AirlinkLabs. Licensed under the MIT License
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- */
-
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
@@ -63,7 +54,7 @@ const startLoadingAnimation = (message: string): { stop: () => void } => {
 
 export const loadModules = async (
   app: express.Express,
-  airlinkVersion: string,
+  kspanelVersion: string,
   serverPort?: number
 ) => {
   const modulesDir = path.join(__dirname, '../modules');
@@ -162,7 +153,7 @@ export const loadModules = async (
     if (module && module.info && typeof module.router === 'function') {
       const { info, router } = module;
 
-      if (info.version === airlinkVersion) {
+      if (info.version === kspanelVersion) {
         // Determine module group
         let moduleGroup = 'Other';
 
@@ -204,7 +195,7 @@ export const loadModules = async (
         }
       } else {
         logger.warn(
-          `⚠️  Skipping incompatible module: ${info.name} (requires v${info.version}, found v${airlinkVersion})`,
+          `⚠️  Skipping incompatible module: ${info.name} (requires v${info.version}, found v${kspanelVersion})`,
         );
         skippedCount++;
       }

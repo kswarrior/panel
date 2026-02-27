@@ -8,7 +8,7 @@ import { registerPermission } from '../../handlers/permisions';
 
 const prisma = new PrismaClient();
 
-registerPermission('airlink.admin.analytics.view');
+registerPermission('kspanel.admin.analytics.view');
 
 interface ErrorMessage {
   message?: string;
@@ -20,7 +20,7 @@ const analyticsModule: Module = {
     description: 'This file provides analytics dashboard for the admin panel.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -30,7 +30,7 @@ const analyticsModule: Module = {
     // Main analytics page
     router.get(
       '/admin/analytics',
-      isAuthenticated(true, 'airlink.admin.analytics.view'),
+      isAuthenticated(true, 'kspanel.admin.analytics.view'),
       async (req: Request, res: Response) => {
         const errorMessage: ErrorMessage = {};
 
@@ -76,7 +76,7 @@ const analyticsModule: Module = {
     // API endpoint to get player stats data for analytics
     router.get(
       '/admin/playerstats/data',
-      isAuthenticated(true, 'airlink.admin.analytics.view'),
+      isAuthenticated(true, 'kspanel.admin.analytics.view'),
       async (req: Request, res: Response) => {
         try {
           // Get all servers
@@ -116,7 +116,7 @@ const analyticsModule: Module = {
                     port: primaryPort
                   },
                   auth: {
-                    username: 'Airlink',
+                    username: 'kspanel',
                     password: server.node.key,
                   },
                   timeout: DAEMON_REQUEST_TIMEOUT
@@ -177,7 +177,7 @@ const analyticsModule: Module = {
     // API endpoint for performance metrics
     router.get(
       '/api/admin/analytics/performance',
-      isAuthenticated(true, 'airlink.admin.analytics.view'),
+      isAuthenticated(true, 'kspanel.admin.analytics.view'),
       async (req: Request, res: Response) => {
         try {
           // TODO: Implement actual performance metrics collection
@@ -200,7 +200,7 @@ const analyticsModule: Module = {
     // API endpoint for usage analytics
     router.get(
       '/api/admin/analytics/usage',
-      isAuthenticated(true, 'airlink.admin.analytics.view'),
+      isAuthenticated(true, 'kspanel.admin.analytics.view'),
       async (req: Request, res: Response) => {
         try {
           // Get basic usage statistics

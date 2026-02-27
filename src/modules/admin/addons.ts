@@ -15,13 +15,13 @@ import { getParamAsString } from '../../utils/typeHelpers';
 const prisma = new PrismaClient();
 const execFileAsync = promisify(execFile);
 
-registerPermission('airlink.admin.addons.view');
-registerPermission('airlink.admin.addons.toggle');
-registerPermission('airlink.admin.addons.reload');
-registerPermission('airlink.admin.addons.store');
-registerPermission('airlink.admin.addons.install');
+registerPermission('kspanel.admin.addons.view');
+registerPermission('kspanel.admin.addons.toggle');
+registerPermission('kspanel.admin.addons.reload');
+registerPermission('kspanel.admin.addons.store');
+registerPermission('kspanel.admin.addons.install');
 
-const ADDONS_REPO_OWNER = 'airlinklabs';
+const ADDONS_REPO_OWNER = 'kspanellabs';
 const ADDONS_REPO_NAME  = 'addons';
 const ADDONS_RAW_BASE   = `https://raw.githubusercontent.com/${ADDONS_REPO_OWNER}/${ADDONS_REPO_NAME}/main`;
 const GITHUB_API_BASE   = `https://api.github.com/repos/${ADDONS_REPO_OWNER}/${ADDONS_REPO_NAME}`;
@@ -95,7 +95,7 @@ const addonsModule: Module = {
     description: 'This file is for admin functionality of the Addons.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -104,7 +104,7 @@ const addonsModule: Module = {
 
     router.get(
       '/admin/addons',
-      isAuthenticated(true, 'airlink.admin.addons.view'),
+      isAuthenticated(true, 'kspanel.admin.addons.view'),
       async (req: Request, res: Response) => {
         try {
           const userId = req.session?.user?.id;
@@ -131,7 +131,7 @@ const addonsModule: Module = {
 
     router.get(
       '/admin/addons/list',
-      isAuthenticated(true, 'airlink.admin.addons.view'),
+      isAuthenticated(true, 'kspanel.admin.addons.view'),
       async (_req: Request, res: Response) => {
         try {
           const addons = await getAllAddons();
@@ -144,7 +144,7 @@ const addonsModule: Module = {
 
     router.post(
       '/admin/addons/toggle/:slug',
-      isAuthenticated(true, 'airlink.admin.addons.toggle'),
+      isAuthenticated(true, 'kspanel.admin.addons.toggle'),
       async (req: Request, res: Response) => {
         try {
           const { slug } = req.params;
@@ -170,7 +170,7 @@ const addonsModule: Module = {
 
     router.post(
       '/admin/addons/reload',
-      isAuthenticated(true, 'airlink.admin.addons.reload'),
+      isAuthenticated(true, 'kspanel.admin.addons.reload'),
       async (req: Request, res: Response) => {
         try {
           const result = await reloadAddons(req.app);
@@ -186,7 +186,7 @@ const addonsModule: Module = {
 
     router.get(
       '/admin/addons/store',
-      isAuthenticated(true, 'airlink.admin.addons.store'),
+      isAuthenticated(true, 'kspanel.admin.addons.store'),
       async (req: Request, res: Response) => {
         try {
           const userId = req.session?.user?.id;
@@ -206,11 +206,11 @@ const addonsModule: Module = {
 
     router.get(
       '/admin/addons/store/list',
-      isAuthenticated(true, 'airlink.admin.addons.store'),
+      isAuthenticated(true, 'kspanel.admin.addons.store'),
       async (_req: Request, res: Response) => {
         try {
           const contentsRes = await fetch(`${GITHUB_API_BASE}/contents`, {
-            headers: { 'Accept': 'application/vnd.github+json', 'User-Agent': 'airlink-panel' },
+            headers: { 'Accept': 'application/vnd.github+json', 'User-Agent': 'kspanel-panel' },
           });
 
           if (!contentsRes.ok) {
@@ -224,7 +224,7 @@ const addonsModule: Module = {
             folders.map(async (folder: any) => {
               try {
                 const infoRes = await fetch(`${ADDONS_RAW_BASE}/${folder.name}/info.json`, {
-                  headers: { 'User-Agent': 'airlink-panel' },
+                  headers: { 'User-Agent': 'kspanel-panel' },
                 });
                 if (!infoRes.ok) return null;
                 const info = await infoRes.json() as any;
@@ -232,7 +232,7 @@ const addonsModule: Module = {
                 let installManifest: InstallManifest = {};
                 try {
                   const instRes = await fetch(`${ADDONS_RAW_BASE}/${folder.name}/install.json`, {
-                    headers: { 'User-Agent': 'airlink-panel' },
+                    headers: { 'User-Agent': 'kspanel-panel' },
                   });
                   if (instRes.ok) installManifest = await instRes.json() as InstallManifest;
                 } catch {}
@@ -271,7 +271,7 @@ const addonsModule: Module = {
 
     router.get(
       '/admin/addons/store/discussions',
-      isAuthenticated(true, 'airlink.admin.addons.store'),
+      isAuthenticated(true, 'kspanel.admin.addons.store'),
       async (_req: Request, res: Response) => {
         try {
           const token = process.env.GITHUB_TOKEN;
@@ -290,7 +290,7 @@ const addonsModule: Module = {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
-              'User-Agent': 'airlink-panel',
+              'User-Agent': 'kspanel-panel',
             },
             body: JSON.stringify({ query }),
           });
@@ -313,7 +313,7 @@ const addonsModule: Module = {
 
     router.post(
       '/admin/addons/store/install',
-      isAuthenticated(true, 'airlink.admin.addons.install'),
+      isAuthenticated(true, 'kspanel.admin.addons.install'),
       async (req: Request, res: Response) => {
         const { slug } = req.body;
 
@@ -346,7 +346,7 @@ const addonsModule: Module = {
           fs.mkdirSync(addonsDir, { recursive: true });
 
           const instRes = await fetch(`${ADDONS_RAW_BASE}/${slug}/install.json`, {
-            headers: { 'User-Agent': 'airlink-panel' },
+            headers: { 'User-Agent': 'kspanel-panel' },
           });
 
           if (!instRes.ok) {
@@ -424,7 +424,7 @@ const addonsModule: Module = {
 
     router.post(
       '/admin/addons/store/uninstall',
-      isAuthenticated(true, 'airlink.admin.addons.install'),
+      isAuthenticated(true, 'kspanel.admin.addons.install'),
       async (req: Request, res: Response) => {
         try {
           const { slug } = req.body;

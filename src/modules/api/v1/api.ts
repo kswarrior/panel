@@ -13,7 +13,7 @@ const coreModule: Module = {
     description: 'This module provides the API endpoints for the panel.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -58,7 +58,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/users',
-      apiValidator('airlink.api.users.read'),
+      apiValidator('kspanel.api.users.read'),
       async (req: Request, res: Response) => {
         try {
           const users = await prisma.users.findMany({
@@ -82,7 +82,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/users/:id',
-      apiValidator('airlink.api.users.read'),
+      apiValidator('kspanel.api.users.read'),
       async (req: Request, res: Response) => {
         try {
           const userId = getParamAsNumber(req.params.id);
@@ -115,7 +115,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/servers',
-      apiValidator('airlink.api.servers.read'),
+      apiValidator('kspanel.api.servers.read'),
       async (_req: Request, res: Response) => {
         try {
           const servers = await prisma.server.findMany({
@@ -148,7 +148,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/servers/:id',
-      apiValidator('airlink.api.servers.read'),
+      apiValidator('kspanel.api.servers.read'),
       async (req: Request, res: Response) => {
         try {
           const serverId = req.params.id;
@@ -190,7 +190,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/nodes',
-      apiValidator('airlink.api.nodes.read'),
+      apiValidator('kspanel.api.nodes.read'),
       async (_req: Request, res: Response) => {
         try {
           const nodes = await prisma.node.findMany({
@@ -222,7 +222,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/nodes/:id',
-      apiValidator('airlink.api.nodes.read'),
+      apiValidator('kspanel.api.nodes.read'),
       async (req: Request, res: Response) => {
         try {
           const nodeId = getParamAsNumber(req.params.id);
@@ -270,7 +270,7 @@ const coreModule: Module = {
 
     router.get(
       '/api/v1/settings',
-      apiValidator('airlink.api.settings.read'),
+      apiValidator('kspanel.api.settings.read'),
       async (_req: Request, res: Response) => {
         try {
           const settings = await prisma.settings.findFirst();
@@ -291,7 +291,7 @@ const coreModule: Module = {
 
     router.patch(
       '/api/v1/settings',
-      apiValidator('airlink.api.settings.update'),
+      apiValidator('kspanel.api.settings.update'),
       async (req: Request, res: Response) => {
         try {
           const { title, description, logo, favicon, theme, language } = req.body;

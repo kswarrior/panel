@@ -18,7 +18,7 @@ const dashboardModule: Module = {
     description: 'This file is for dashboard functionality.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -68,7 +68,7 @@ const dashboardModule: Module = {
                 method: 'GET',
                 url: `http://${server.node.address}:${server.node.port}`,
                 auth: {
-                  username: 'Airlink',
+                  username: 'kspanel',
                   password: server.node.key,
                 },
                 timeout: 2000,
@@ -123,7 +123,7 @@ const dashboardModule: Module = {
                 method: 'GET',
                 url: `http://${server.node.address}:${server.node.port}/container/status`,
                 auth: {
-                  username: 'Airlink',
+                  username: 'kspanel',
                   password: server.node.key,
                 },
                 params: { id: server.UUID },
@@ -141,7 +141,7 @@ const dashboardModule: Module = {
                     method: 'GET',
                     url: `http://${server.node.address}:${server.node.port}/container/stats`,
                     auth: {
-                      username: 'Airlink',
+                      username: 'kspanel',
                       password: server.node.key,
                     },
                     params: { id: server.UUID },

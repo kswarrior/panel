@@ -18,7 +18,7 @@ const adminModule: Module = {
     description: 'This file is for admin functionality.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -192,7 +192,7 @@ const adminModule: Module = {
                 method: 'POST',
                 url: `http://${server.node.address}:${server.node.port}/container/stop`,
                 auth: {
-                  username: 'Airlink',
+                  username: 'kspanel',
                   password: server.node.key,
                 },
                 headers: {
@@ -527,7 +527,7 @@ const adminModule: Module = {
                     {
                       headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Basic ${Buffer.from(`Airlink:${server.node.key}`).toString('base64')}`,
+                        Authorization: `Basic ${Buffer.from(`kspanel:${server.node.key}`).toString('base64')}`,
                       },
                     },
                   );
@@ -546,7 +546,7 @@ const adminModule: Module = {
                       {
                         headers: {
                           'Content-Type': 'application/json',
-                          Authorization: `Basic ${Buffer.from(`Airlink:${server.node.key}`).toString('base64')}`,
+                          Authorization: `Basic ${Buffer.from(`kspanel:${server.node.key}`).toString('base64')}`,
                         },
                       },
                     );
@@ -616,7 +616,7 @@ const adminModule: Module = {
                 `http://${server.node.address}:${server.node.port}/container`,
                 {
                   auth: {
-                    username: 'Airlink',
+                    username: 'kspanel',
                     password: server.node.key,
                   },
                   headers: {

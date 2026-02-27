@@ -8,7 +8,7 @@ import { registerPermission } from '../../handlers/permisions';
 
 const prisma = new PrismaClient();
 
-registerPermission('airlink.admin.playerstats.view');
+registerPermission('kspanel.admin.playerstats.view');
 
 interface ErrorMessage {
   message?: string;
@@ -20,7 +20,7 @@ const adminModule: Module = {
     description: 'This file provides player statistics for the admin panel.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -29,7 +29,7 @@ const adminModule: Module = {
 
     router.get(
       '/admin/playerstats',
-      isAuthenticated(true, 'airlink.admin.playerstats.view'),
+      isAuthenticated(true, 'kspanel.admin.playerstats.view'),
       async (req: Request, res: Response) => {
         const errorMessage: ErrorMessage = {};
 
@@ -82,7 +82,7 @@ const adminModule: Module = {
     // API endpoint to get player counts for all servers
     router.get(
       '/api/admin/playerstats',
-      isAuthenticated(true, 'airlink.admin.playerstats.view'),
+      isAuthenticated(true, 'kspanel.admin.playerstats.view'),
       async (req: Request, res: Response) => {
         try {
           // Get all servers
@@ -121,7 +121,7 @@ const adminModule: Module = {
                     port: primaryPort
                   },
                   auth: {
-                    username: 'Airlink',
+                    username: 'kspanel',
                     password: server.node.key,
                   },
                   timeout: 5000
@@ -180,7 +180,7 @@ const adminModule: Module = {
     // API endpoint to manually trigger player stats collection
     router.post(
       '/api/admin/playerstats/collect',
-      isAuthenticated(true, 'airlink.admin.playerstats.view'),
+      isAuthenticated(true, 'kspanel.admin.playerstats.view'),
       async (req: Request, res: Response) => {
         try {
           const { collectPlayerStats } = require('../../handlers/playerStatsCollector');

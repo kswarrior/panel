@@ -1,12 +1,3 @@
-/**
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- *      AirLink - Open Source Project by AirlinkLabs
- *      Repository: https://github.com/airlinklabs/panel
- *
- *     © 2025 AirlinkLabs. Licensed under the MIT License
- * ╳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╳
- */
-
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
 import logger from './logger';
@@ -58,7 +49,7 @@ export async function collectPlayerStats(): Promise<void> {
               port: primaryPort
             },
             auth: {
-              username: 'Airlink',
+              username: 'kspanel',
               password: server.node.key,
             },
             timeout: 5000

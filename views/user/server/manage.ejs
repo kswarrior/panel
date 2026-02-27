@@ -466,7 +466,7 @@ connectWebSocket();
                 socket.close();
             }
 
-            if (trimmedLine.includes("airlinkd server appears to be down")) {
+            if (trimmedLine.includes("kspaneld server appears to be down")) {
                 socket.close();
 
                 // Show daemon offline warning if it exists
@@ -483,7 +483,7 @@ connectWebSocket();
 
     function writeConsole(prefix, type, message) {
         const colors = {
-            airlinkd: baseTheme.blue,
+            kspaneld: baseTheme.blue,
             system: baseTheme.yellow,
             error: baseTheme.red,
             info: baseTheme.blue,

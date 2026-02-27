@@ -6,26 +6,26 @@ const prisma = new PrismaClient();
 const permissions: string[] = [];
 
 // API Key permissions
-registerPermission('airlink.api.keys.view');
-registerPermission('airlink.api.keys.create');
-registerPermission('airlink.api.keys.delete');
-registerPermission('airlink.api.keys.edit');
+registerPermission('kspanel.api.keys.view');
+registerPermission('kspanel.api.keys.create');
+registerPermission('kspanel.api.keys.delete');
+registerPermission('kspanel.api.keys.edit');
 
 // API endpoints permissions
-registerPermission('airlink.api.servers.read');
-registerPermission('airlink.api.servers.create');
-registerPermission('airlink.api.servers.update');
-registerPermission('airlink.api.servers.delete');
-registerPermission('airlink.api.users.read');
-registerPermission('airlink.api.users.create');
-registerPermission('airlink.api.users.update');
-registerPermission('airlink.api.users.delete');
-registerPermission('airlink.api.nodes.read');
-registerPermission('airlink.api.nodes.create');
-registerPermission('airlink.api.nodes.update');
-registerPermission('airlink.api.nodes.delete');
-registerPermission('airlink.api.settings.read');
-registerPermission('airlink.api.settings.update');
+registerPermission('kspanel.api.servers.read');
+registerPermission('kspanel.api.servers.create');
+registerPermission('kspanel.api.servers.update');
+registerPermission('kspanel.api.servers.delete');
+registerPermission('kspanel.api.users.read');
+registerPermission('kspanel.api.users.create');
+registerPermission('kspanel.api.users.update');
+registerPermission('kspanel.api.users.delete');
+registerPermission('kspanel.api.nodes.read');
+registerPermission('kspanel.api.nodes.create');
+registerPermission('kspanel.api.nodes.update');
+registerPermission('kspanel.api.nodes.delete');
+registerPermission('kspanel.api.settings.read');
+registerPermission('kspanel.api.settings.update');
 
 function registerPermission(permission: string): void {
   if (!permissions.includes(permission)) {

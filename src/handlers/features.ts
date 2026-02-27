@@ -51,7 +51,7 @@ export async function checkEulaStatus(
       responseType: 'text',
       params: { id: server.UUID, path: 'eula.txt' },
       auth: {
-        username: 'Airlink',
+        username: 'kspanel',
         password: server.node.key,
       },
     });
@@ -95,7 +95,7 @@ export const isWorld = async (
     'texturepacks',
     'server',
     'backups',
-    'airlink',
+    'kspanel',
   ];
 
   // Basic validation
@@ -114,7 +114,7 @@ export const isWorld = async (
       method: 'GET',
       url: `http://${serverInfo.nodeAddress}:${serverInfo.nodePort}/fs/list?id=${serverInfo.serverUUID}&path=${folderName}`,
       auth: {
-        username: 'Airlink',
+        username: 'kspanel',
         password: serverInfo.nodeKey,
       },
       headers: {

@@ -18,7 +18,7 @@ const coreModule: Module = {
     description: 'This file is for all core functionality.',
     version: '1.0.0',
     moduleVersion: '1.0.0',
-    author: 'AirLinkLab',
+    author: 'kspanelLab',
     license: 'MIT',
   },
 
@@ -679,7 +679,7 @@ const coreModule: Module = {
                     {
                       headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Basic ${Buffer.from(`Airlink:${server.node.key}`).toString('base64')}`,
+                        Authorization: `Basic ${Buffer.from(`kspanel:${server.node.key}`).toString('base64')}`,
                       },
                     },
                   );

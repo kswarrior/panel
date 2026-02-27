@@ -17,7 +17,7 @@ export async function checkNodeStatus(node: Node): Promise<Node> {
       method: 'get',
       url: `http://${node.address}:${node.port}`,
       auth: {
-        username: 'Airlink',
+        username: 'kspanel',
         password: node.key,
       },
       headers: {

@@ -36,7 +36,7 @@ export async function getServerStatus(serverInfo: ServerInfo): Promise<ServerSta
       method: 'GET',
       url: `http://${serverInfo.nodeAddress}:${serverInfo.nodePort}/container/status`,
       auth: {
-        username: 'Airlink',
+        username: 'kspanel',
         password: serverInfo.nodeKey,
       },
       params: { id: serverInfo.serverUUID },
@@ -76,7 +76,7 @@ export async function getServerStatus(serverInfo: ServerInfo): Promise<ServerSta
           method: 'GET',
           url: `http://${serverInfo.nodeAddress}:${serverInfo.nodePort}/container/image-info`,
           auth: {
-            username: 'Airlink',
+            username: 'kspanel',
             password: serverInfo.nodeKey,
           },
           params: { id: serverInfo.serverUUID },
@@ -93,7 +93,7 @@ export async function getServerStatus(serverInfo: ServerInfo): Promise<ServerSta
             method: 'GET',
             url: `http://${serverInfo.nodeAddress}:${serverInfo.nodePort}/container/logs`,
             auth: {
-              username: 'Airlink',
+              username: 'kspanel',
               password: serverInfo.nodeKey,
             },
             params: {
