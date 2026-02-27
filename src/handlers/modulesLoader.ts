@@ -88,7 +88,7 @@ export const loadModules = async (
  / /| |___/ /  / ____/ /_/ / / / /  __/ /  
 /_/ |_/____/  /_/    \\__,_/_/ /_/\\___/_/ 
 
-❰🔹❰❰ 𝑲𝑺 𝑾𝒂𝒓𝒓𝒊𝒐𝒓 ❱❱🔹❱ | version v${version}
+❰🔹❰❰ 𝑲𝑺 𝑾𝒂𝒓𝒓𝒊𝒐𝒓 ❱❱🔹❱ | version v1.0.0
 `;
 
   const gradientSteps = ascii.length;
