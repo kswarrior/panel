@@ -17,7 +17,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+          
+      # Step 3: Install cloudflared
+      - name: Download and install cloudflared
+        run: |
+          echo "Downloading cloudflared..."
+          curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+          chmod +x cloudflared
+          sudo mv cloudflared /usr/local/bin/
 
+      # Step 4: Install cloudflared service with your token
+      - name: Install cloudflared service
+        run: |
+          sudo cloudflared service install eyJhIjoiZTJkZjY3MDI5ZWZlZTBmY2JhM2ExMjNjN2VmNTcxNTAiLCJ0IjoiMGQ2Yzk5YjQtMGUzZC00NzEyLWFmNDctNzM0MGU5YTEyOGE3IiwicyI6IlkyVTNOelV5WmpBdFl6SmpOeTAwTjJZMExUbGpNMk10T0dJelltRmtOREk1T1dOaCJ9
+          
       # Step 3: Install TypeScript globally
       - name: Install TypeScript
         run: npm install -g typescript
