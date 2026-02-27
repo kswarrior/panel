@@ -120,15 +120,23 @@ function initializeTheme() {
       const sidebar2 = document.getElementById('pc-sidebar2');
       const colcont = document.getElementById('colcont');
 
+      <% if (typeof theme !== 'undefined' && theme) { %>
       if ('<%= theme["sidebar-direction"] %>' === 'right') {
-         sidebar.classList.add('right-0');
-         colcont.classList.add('colcontextream');
-         colcont.classList.add('colcont-right');
-         sidebar2.classList.remove('rounded-r-3xl', 'rounded-l-lg');
-         sidebar2.classList.add('rounded-r-lg', 'rounded-l-3xl');
+         if (sidebar) sidebar.classList.add('right-0');
+         if (colcont) {
+            colcont.classList.add('colcontextream');
+            colcont.classList.add('colcont-right');
+         }
+         if (sidebar2) {
+            sidebar2.classList.remove('rounded-r-3xl', 'rounded-l-lg');
+            sidebar2.classList.add('rounded-r-lg', 'rounded-l-3xl');
+         }
       } else {
-         sidebar.classList.add('left-0');
+         if (sidebar) sidebar.classList.add('left-0');
       }
+      <% } else { %>
+      if (sidebar) sidebar.classList.add('left-0');
+      <% } %>
    });
 </script>
 
@@ -225,7 +233,7 @@ function initializeTheme() {
                      
                      
                   </li>
-                  <% if (user.admin == true) { %>
+                  <% if (typeof user !== 'undefined' && user && user.admin == true) { %>
                      <p class="pl-8 pt-6 pb-2 text-sm md:text-base font-semibold uppercase tracking-wide text-white group-[.collapsed]:hidden">
                         <span>Admin Panel</span>
                      </p>
