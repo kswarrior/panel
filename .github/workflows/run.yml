@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: "file:./prisma/dev.db"
+      DATABASE_URL: "file:./dev.db"
 
     steps:
       - name: Checkout repository
@@ -93,6 +93,9 @@ jobs:
         run: |
           cloudflared tunnel --no-autoupdate run --token \${{ secrets.CLOUDFLARE_TOKEN }} &
 
+      - name: Run Prisma migrations
+        run: npx prisma migrate deploy
+        
       - name: Start KS Panel
         run: npm run start
 
