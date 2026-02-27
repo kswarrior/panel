@@ -165,7 +165,7 @@ Here's a complete example of an addon that uses migrations to create a table for
   "name": "User Notes",
   "version": "1.0.0",
   "description": "Add notes to users",
-  "author": "KS Panel Labs",
+  "author": "KS Warrior",
   "main": "index.ts",
   "router": "/user-notes",
   "migrations": [

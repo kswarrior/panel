@@ -435,7 +435,7 @@ Here's a complete example of a simple addon that adds a custom page and a databa
   "name": "User Notes",
   "version": "1.0.0",
   "description": "Add notes to users",
-  "author": "KS Panel Labs",
+  "author": "KS Warrior",
   "main": "index.ts",
   "router": "/user-notes",
   "migrations": [

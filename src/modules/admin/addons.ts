@@ -21,7 +21,7 @@ registerPermission('kspanel.admin.addons.reload');
 registerPermission('kspanel.admin.addons.store');
 registerPermission('kspanel.admin.addons.install');
 
-const ADDONS_REPO_OWNER = 'kspanellabs';
+const ADDONS_REPO_OWNER = 'kswarrior';
 const ADDONS_REPO_NAME  = 'addons';
 const ADDONS_RAW_BASE   = `https://raw.githubusercontent.com/${ADDONS_REPO_OWNER}/${ADDONS_REPO_NAME}/main`;
 const GITHUB_API_BASE   = `https://api.github.com/repos/${ADDONS_REPO_OWNER}/${ADDONS_REPO_NAME}`;
@@ -210,7 +210,7 @@ const addonsModule: Module = {
       async (_req: Request, res: Response) => {
         try {
           const contentsRes = await fetch(`${GITHUB_API_BASE}/contents`, {
-            headers: { 'Accept': 'application/vnd.github+json', 'User-Agent': 'kspanel-panel' },
+            headers: { 'Accept': 'application/vnd.github+json', 'User-Agent': 'kspanel' },
           });
 
           if (!contentsRes.ok) {
@@ -224,7 +224,7 @@ const addonsModule: Module = {
             folders.map(async (folder: any) => {
               try {
                 const infoRes = await fetch(`${ADDONS_RAW_BASE}/${folder.name}/info.json`, {
-                  headers: { 'User-Agent': 'kspanel-panel' },
+                  headers: { 'User-Agent': 'kspanel' },
                 });
                 if (!infoRes.ok) return null;
                 const info = await infoRes.json() as any;
@@ -232,7 +232,7 @@ const addonsModule: Module = {
                 let installManifest: InstallManifest = {};
                 try {
                   const instRes = await fetch(`${ADDONS_RAW_BASE}/${folder.name}/install.json`, {
-                    headers: { 'User-Agent': 'kspanel-panel' },
+                    headers: { 'User-Agent': 'kspanel' },
                   });
                   if (instRes.ok) installManifest = await instRes.json() as InstallManifest;
                 } catch {}
@@ -290,7 +290,7 @@ const addonsModule: Module = {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
-              'User-Agent': 'kspanel-panel',
+              'User-Agent': 'kspanel',
             },
             body: JSON.stringify({ query }),
           });
@@ -346,7 +346,7 @@ const addonsModule: Module = {
           fs.mkdirSync(addonsDir, { recursive: true });
 
           const instRes = await fetch(`${ADDONS_RAW_BASE}/${slug}/install.json`, {
-            headers: { 'User-Agent': 'kspanel-panel' },
+            headers: { 'User-Agent': 'kspanel' },
           });
 
           if (!instRes.ok) {

@@ -8,7 +8,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
-[![License](https://img.shields.io/github/license/KS PanelLabs/panel)](https://github.com/KS PanelLabs/panel/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/kswarrior/panel)](https://github.com/kswarrior/panel/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1302020587316707420)](https://discord.gg/D8YbT9rDqz)
 
 ## 📖 Overview
@@ -29,7 +29,7 @@ KS Panel is an advanced, open-source game server management platform designed to
 Run the installer as root:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/KS Panellabs/panel/refs/heads/main/installer.sh)
+bash <(curl -s https://raw.githubusercontent.com/kswarrior/panel/refs/heads/main/installer.sh)
 ```
 the KS Panel and daemon can be started and stopped using systemd
 ```bash
@@ -42,7 +42,7 @@ systemctl stop KS Panel-panel # Stopping the panel
 1. Clone the repository:
    ```bash
    cd /var/www/
-   git clone https://github.com/KS PanelLabs/panel.git
+   git clone https://github.com/kswarrior/panel.git
    cd panel
    ```
 
@@ -130,5 +130,5 @@ For more information, check out these resources:
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
-  Made with ❤️ by KS Panel Labs
+  Made with ❤️ by KS Warrior 
 </div>
