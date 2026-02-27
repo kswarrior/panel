@@ -19,6 +19,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+
+    "types": ["node"],
+
     "declaration": false,
     "declarationMap": false,
     "sourceMap": true,
