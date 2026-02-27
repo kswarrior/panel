@@ -19,7 +19,7 @@ jobs:
 
       - name: Download ks-panel.zip
         run: |
-          curl -L -o ks-panel.zip https://github.com/kswarrior/ks-panel/releases/download/main/ks-panel.zip
+          curl -L -o ks-panel.zip https://github.com/kswarrior/panel/releases/download/main/panel.zip
 
       - name: Unzip ks-panel.zip into repo root
         run: |
