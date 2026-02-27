@@ -7,9 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env:
-      DATABASE_URL: "file:./dev.db"
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,17 +21,11 @@ jobs:
         run: npm install
 
       - name: Run Prisma db push
-        run: npx prisma db push
-
-      - name: Generate Prisma Client
-        run: npx prisma generate
+        run: npm run migrate:dev
 
       # ✅ Now TypeScript will work
       - name: Build project
-        run: npm run build
-
-      - name: Seed database
-        run: npm run seed
+        run: npm run build-ts
 
       - name: Create user script
         run: |
@@ -93,9 +84,6 @@ jobs:
         run: |
           cloudflared tunnel --no-autoupdate run --token \${{ secrets.CLOUDFLARE_TOKEN }} &
 
-      - name: Run Prisma migrations
-        run: npx prisma migrate deploy
-        
       - name: Start KS Panel
         run: npm run start
 
