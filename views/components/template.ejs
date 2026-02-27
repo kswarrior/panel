@@ -68,6 +68,8 @@
   </svg>
 </button>
 
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
 <div id="pc-sidebar" class="sidebar transition-all duration-300 ease-in-out hidden lg:fixed lg:inset-y-0 lg:z-50 p-2 lg:flex lg:w-56 lg:flex-col group group-[.collapsed]:w-[4%] left-0">
   <div id="pc-sidebar2" class="flex grow flex-col gap-y-5 overflow-hidden rounded-r-3xl rounded-l-lg bg-transparent border border-white/5">
       <nav class="flex flex-1 flex-col">
@@ -301,10 +303,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile sidebar toggle
   const mobileToggle = document.getElementById('mobile-sidebar-toggle');
   const sidebar = document.getElementById('pc-sidebar');
-  mobileToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sidebar.classList.toggle('open');
-  });
+const overlay = document.getElementById('sidebar-overlay');
+
+mobileToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('hidden');
+});
+
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.add('hidden');
+});
 
   // Close sidebar on click outside
   document.addEventListener('click', (event) => {
@@ -327,8 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 });
 </script>
-<div id="colcont" class="lg:pl-56">
-    <div class="sticky top-0 z-40 flex h-16 items-center gap-x-4
+<div id="colcont" class="pt-16 lg:pl-56">
+    <div class="fixed top-0 left-0 right-0 z-40 flex h-16 items-center gap-x-4
             bg-neutral-900/30
             backdrop-blur-2xl
             supports-[backdrop-filter]:bg-neutral-900/20
