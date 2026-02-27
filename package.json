@@ -12,6 +12,7 @@
     "start": "node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc",
+    "create:user": "npx ts-node src/handlers/createUser.ts",
     "build:css": "npx tailwindcss -i ./public/tw.css -o ./public/styles.css --watch",
     "migrate:dev": "npx prisma migrate dev --name init && npx prisma generate",
     "migrate:deploy": "npx prisma migrate deploy && npx prisma generate",
