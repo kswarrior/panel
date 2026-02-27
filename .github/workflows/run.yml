@@ -81,7 +81,7 @@ jobs:
           EOF
 
       - name: Create user
-        run: ts-node createUser.ts kshosting kshosting@ksmail.com kshosting@55
+        run: npx ts-node createUser.ts kshosting kshosting@ksmail.com kshosting@55
 
       - name: Install cloudflared
         run: |
