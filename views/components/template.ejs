@@ -328,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <div id="colcont" class="lg:pl-56">
-  <div class="backdrop-blur bg-black bg-opacity-50 absolute inset-0 z-30 h-16"></div>
     <div class="sticky top-0 z-40 flex h-16 items-center gap-x-4
             bg-neutral-900/30
             backdrop-blur-2xl
@@ -352,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <img src="<%= settings.logo.startsWith('/') ? settings.logo : '/' + settings.logo %>" alt="Logo" class="bg-neutral-950/90 p-1 dark:bg-transparent h-10 w-10 rounded-xl mr-3 inline-flex">
                   <h1 class="text-white font-medium tracking-tight text-lg group-[.collapsed]:hidden"><%= settings.title %></h1>
               </a>
-          </div>>
+          </div>
       </div>
     </div>
   </div>
