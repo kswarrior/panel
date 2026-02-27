@@ -11,52 +11,56 @@ jobs:
       DATABASE_URL: "file:./prisma/dev.db"
 
     steps:
-      # Step 1: Checkout repo
+      # 1️⃣ Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Setup Node
+      # 2️⃣ Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Step 3: Install dependencies
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install --omit=dev
 
-      # Step 4: Run Prisma migrate
+      # 4️⃣ Run Prisma migrations (CI safe)
       - name: Run migrations
         run: npx prisma migrate deploy
 
-      # Step 5: Generate Prisma client
+      # 5️⃣ Generate Prisma client
       - name: Generate Prisma Client
         run: npx prisma generate
 
-      # Step 6: Build TypeScript
+      # 6️⃣ Build project (FIXED HERE)
       - name: Build project
-        run: npm run build-ts
+        run: npm run build
 
-      # Step 7: Seed database
+      # 7️⃣ Seed database
       - name: Seed database
         run: npm run seed
 
-      # Step 8: Create user
+      # 8️⃣ Create admin user
       - name: Create user
         run: npm run create:user -- --username=kshosting --email=kshosting@ksmail.com --password=kshosting@55
 
-      # Step 9: Download cloudflared
-      - name: Download cloudflared
+      # 9️⃣ Install cloudflared
+      - name: Install cloudflared
         run: |
           curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
           chmod +x cloudflared
           sudo mv cloudflared /usr/local/bin/
 
-      # Step 10: Run cloudflared tunnel (background)
+      # 🔟 Start tunnel in background
       - name: Start Cloudflare Tunnel
         run: |
-          cloudflared tunnel --no-autoupdate run --token eyJhIjoiZTJkZjY3MDI5ZWZlZTBmY2JhM2ExMjNjN2VmNTcxNTAiLCJ0IjoiMGQ2Yzk5YjQtMGUzZC00NzEyLWFmNDctNzM0MGU5YTEyOGE3IiwicyI6IlkyVTNOelV5WmpBdFl6SmpOeTAwTjJZMExUbGpNMk10T0dJelltRmtOREk1T1dOaCJ9 &
+          cloudflared tunnel --no-autoupdate run --token ${{ secrets.CLOUDFLARE_TOKEN }} &
 
-      # Step 11: Start KS Panel
+      # 1️⃣1️⃣ Start KS Panel
       - name: Start KS Panel
         run: npm run start
+
+      # Keep workflow alive
+      - name: Keep Alive
+        run: sleep infinity
