@@ -573,7 +573,7 @@ export default function(router: Router, api: any) {
 <main class="h-screen m-auto">
   <div class="flex h-screen">
     <!-- Sidebar -->
-    <div class="w-60 h-full">
+    <div class="w-0 lg:w-60 h-full">
       <%- include(components.template) %>
     </div>
     <!-- Content -->
