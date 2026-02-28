@@ -161,7 +161,7 @@ const adminModule: Module = {
           await prisma.settings.update({
             where: { id: 1 },
             data: {
-              title: 'kspanel',
+              title: 'KS Panel',
               logo: '../assets/logo.png',
               favicon: '../assets/favicon.ico',
               theme: 'default',
