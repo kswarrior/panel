@@ -84,12 +84,12 @@
               clip-rule="evenodd" />
           </svg>
             <h2 class="mt-8 text-lg font-medium text-gray-900 dark:text-white">
-              Oops! We couldn't find any servers associated with your account.
+              No Server
             </h3>
             <p class="mt-1 text-sm text-gray-400 dark:text-neutral-400">
               You don’t have any servers yet.
               <% if (user.isAdmin) { %>
-                Why not create one now? <a href="/admin/servers/create" class="text-blue-500 hover:underline">Create a server</a>
+               <a href="/admin/servers/create" class="text-blue-500 hover:underline">Create a server</a>
               <% } else { %>
                 Just wait for an admin to assign one to you!
               <% } %>
