@@ -13,32 +13,40 @@
             font-weight: 500;
          }
          @media (max-width: 1024px) {
+
   .sidebar {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    z-index: 50;
     height: 100%;
     width: 225px;
-    z-index: 50;
-    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(var(--backdrop-blur));
+    background: rgba(0, 0, 0, 0.4);
     overflow-y: auto;
+
+    /* Original transform */
     transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+
+    /* Added smooth animation */
+    opacity: 0;
+    transition: 
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease;
   }
 
   .sidebar.open {
+    display: block;
     transform: translateX(0);
+
+    /* Added fade in */
+    opacity: 1;
+    animation: sidebarSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .sidebar.expanded {
     width: 100%;
   }
 
-  .sidebar.hidden {
-    width: 0;
-    overflow: hidden;
-  }
 }
 
 /* Animation */
@@ -50,16 +58,6 @@
   to {
     transform: translateX(0);
     opacity: 1;
-  }
-}
-
-#colcont {
-  padding-left: 0; /* default for mobile */
-}
-
-@media (min-width: 1024px) {
-  #colcont {
-    padding-left: 14rem; /* matches lg:pl-56 on desktop */
   }
 }
 </style>
@@ -309,8 +307,8 @@ const overlay = document.getElementById('sidebar-overlay');
 
 mobileToggle.addEventListener('click', (e) => {
   e.stopPropagation();
-  sidebar.classList.add('open');
-  overlay.classList.remove('hidden');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('hidden');
 });
 
 overlay.addEventListener('click', () => {
@@ -339,7 +337,7 @@ overlay.addEventListener('click', () => {
   // }
 });
 </script>
-<div id="colcont" class="pt-16 lg:pl-56">
+<div id="colcont" class="pt-16 lg:pl-56 pl-0">
     <div class="fixed top-0 left-0 right-0 z-40 flex h-16 items-center gap-x-4
             bg-neutral-900/30
             backdrop-blur-2xl
@@ -349,11 +347,11 @@ overlay.addEventListener('click', () => {
             px-4 sm:px-6 lg:px-4">
        <div class="hidden lg:block">
        <button type="button" id="sidebar-toggle" class="hidden lg:block w-fit p-2 mt-1 rounded-xl text-neutral-700 dark:text-white border border-neutral-300 dark:border-white/5 hover:scale-110 active:scale-100 duration-200 hover:text-neutral-900 dark:hover:text-white">
-   <span class="sr-only">Toggle sidebar</span>
-   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-   </svg>
-</button>
+          <span class="sr-only">Open sidebar</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+       </button>
     </div>
 
     <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
